@@ -93,8 +93,58 @@ fn main() {
 
     let third_float = my_float + my_other_float; // but now it knows that you need to add it to an f32. So it chooses f32 for my_other_float too
     println!("third_float: {} ", third_float);
-
     println!("---------------------------end of Type interface----------------------------");
+
+    println!("---------------------------hello world----------------------------");
+    println!("Hello, world!");
+    println!("Hello, world number {}!", 8);
+    println!("Hello, worlds number {} and {}!", 8, 9);
+
+    println!("---------------------------end of printing hello world----------------------------");
+
+    println!("---------------------------function----------------------------");
+    // function
+    fn number1() -> i32 {
+        8
+    }
+    println!("Hello, worlds number1: {}!", number1());
+
+    fn multiply(number_one: i32, number_two: i32) -> i32 {
+        let result = number_one * number_two;
+        println!("{} times {} is {}", number_one, number_two, result);
+        result // this is the i32 that we return
+    }
+
+    let multiply_result = multiply(8, 9);
+    println!("multiply_result: {}", multiply_result);
+
+    let my_number = 8;
+    println!("Hello, number {}", my_number);
+
+    // # Declaring variables and code blocks 코드블록{}은 일종의 함수처럼 동작한다.
+    // Variables start and end inside a code block {}. In this example, my_number ends before we call println!, because it is inside its own code block.
+    {
+        let my_number_in = 8; // my_number starts here
+                              // my_number ends here!
+    }
+    // println!("Hello, my_number_in {}", my_number_in);
+
+    let my_number = {
+        let second_number = 8;
+        second_number + 9 // No semicolon, so the code block returns 8 + 9.
+    };
+    println!("My number is: {}", my_number);
+
+    let my_number = {
+        let second_number = 8; // declare second_number
+        second_number + 9; // add 9 to second_number
+                           // but we didn't return it!
+                           // second_number dies now
+    };
+
+    println!("My number is {:?}", my_number); // my_number is (), 리턴값이 없어서 출력값도 없다.
+
+    println!("---------------------------end of function----------------------------");
 
     println!("");
 }
